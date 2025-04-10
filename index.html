@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SiPude - Amor y Familia</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f4f4;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #2C3E50;
+      padding: 20px;
+      text-align: center;
+      color: white;
+      font-size: 26px;
+    }
+    header h1 {
+      font-size: 40px;
+      color: #FF6347;
+    }
+    section {
+      padding: 60px 20px;
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+    }
+    h2 {
+      color: #34495E;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      margin: 20px 0;
+    }
+    .gallery img {
+      width: 100%;
+      max-width: 500px;
+      margin: 20px 0;
+      border-radius: 8px;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+      color: #777;
+      background: #2C3E50;
+    }
+    /* Música */
+    audio {
+      margin-top: 30px;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>SiPude - Un sitio para ti y tu familia</h1>
+  <p>Un rincón de amor, recuerdos y superación.</p>
+</header>
+
+<!-- Reproductor de música en segundo plano -->
+<section id="musica">
+  <h2>Escucha nuestra canción favorita</h2>
+  <audio autoplay loop>
+    <source src="music/garota_de_ipanema.mp3" type="audio/mp3">
+    Tu navegador no soporta el reproductor de audio.
+  </audio>
+</section>
+
+<!-- Galería de imágenes -->
+<section>
+  <h2>Galería de recuerdos</h2>
+  <div class="gallery">
+    <img src="images/imagen1.jpg" alt="Recuerdo 1">
+    <img src="images/imagen2.jpg" alt="Recuerdo 2">
+    <!-- Agrega más imágenes según sea necesario -->
+  </div>
+</section>
+
+<!-- Chat IA (sección para interacción en vivo) -->
+<section id="ia">
+  <h2>Charlá con nuestra IA</h2>
+  <div class="chatbox">
+    <div id="mensajes" class="chat-messages"></div>
+    <input type="text" id="entrada" placeholder="Escribe algo..." onkeydown="if(event.key==='Enter'){enviarMensaje();}">
+    <button onclick="enviarMensaje()">Enviar</button>
+  </div>
+</section>
+
+<footer>
+  © 2025 SiPude — Todos los derechos reservados.
+</footer>
+
+<script>
+  function enviarMensaje() {
+    const input = document.getElementById("entrada");
+    const mensaje = input.value.trim();
+    if (mensaje === "") return;
+
+    const chat = document.getElementById("mensajes");
+    const nuevoUsuario = document.createElement("p");
+    nuevoUsuario.className = "user";
+    nuevoUsuario.innerText = "Tú: " + mensaje;
+    chat.appendChild(nuevoUsuario);
+
+    const respuesta = document.createElement("p");
+    respuesta.className = "ia";
+    respuesta.innerText = "IA: " + generarRespuesta(mensaje);
+    chat.appendChild(respuesta);
+
+    chat.scrollTop = chat.scrollHeight;
+    input.value = "";
+  }
+
+  function generarRespuesta(texto) {
+    texto = texto.toLowerCase();
+    if (texto.includes("hola") || texto.includes("saludos")) {
+      return "¡Hola! ¿Cómo estás? 😊";
+    }
+    if (texto.includes("familia") || texto.includes("amor")) {
+      return "La familia es todo. Es lo más importante en la vida. ❤️";
+    }
+    return "Cuéntame más, me encanta saber más de ti.";
+  }
+</script>
+
+</body>
+</html>
