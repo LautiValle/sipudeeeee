@@ -61,8 +61,8 @@
 <body>
 
 <header>
-  <h1>SiPude - Un sitio para ti y tu familia</h1>
-  <p>Un rincón de amor, recuerdos y superación.</p>
+  <h1>Mi primer página</h1>
+  <p>Un rincón de amor, recuerdos.</p>
 </header>
 
 <!-- Reproductor de música en segundo plano -->
@@ -70,7 +70,6 @@
   <h2>Escucha nuestra canción favorita</h2>
   <audio autoplay loop>
     <source src="music/garota_de_ipanema.mp3" type="audio/mp3">
-    Tu navegador no soporta el reproductor de audio.
   </audio>
 </section>
 
@@ -132,10 +131,13 @@
       return "¡Hola! ¿Cómo estás? 😊";
     }
     if (texto.includes("familia") || texto.includes("amor")) {
-      return "La familia es todo. Es lo más importante en la vida. ❤️";
+      return "La familia es lo más importante en la vida. ❤️";
     }
-    return "Cuéntame más, me encanta saber más de ti.";
+    return "Cuéntame más, me encanta saber más de vos.";
   }
+  if (texto.includes("que podes hacer?") || texto.includes("contame de vos")) {
+      return "Puedo hacer respuestas para que vos imagines como es nuestra historia";
+    }
 </script>
 
 </body>
